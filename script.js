@@ -5,7 +5,7 @@ const start = [
     "They don't want you to know this, but",
     "Wake up, sheeple! The truth is",
     "Hidden in plain sight is the fact that",
-    "Ever wondered why nobody talks about how",
+    "Nobody talks about how",
     "The government has been covering this up for years,",
     "It's all connected: the pyramids, the moon, and",
     "What if I told you",
@@ -16,7 +16,7 @@ const start = [
 const middle = [
     "pigeons are actually government surveillance drones.",
     "the moon is just a giant screensaver controlled by NASA.",
-    "all coffee shops are secretly collectin fingerprints for the Illuminati.",
+    "all coffee shops are secretly collecting fingerprints for the Illuminati.",
     "lizard people run all major fast food chains.",
     "the internet was actually invented in ancient Egypt.",
     "your phone listens to you even when it's turned off, especially when it's off.",
@@ -43,13 +43,22 @@ const end = [
     "Only those who can see the patterns will survive."
 ];
 
+const button = document.getElementById("generate");
+const output = document.getElementById("result");
+
+button.addEventListener("click", () => {
+
+    output.innerHTML = generateMessage();
+    //return console.log('clicked');
+});
+
 
 function generateMessage() {
-    const randStart = Math.floor((Math.random() * start.length) - 1);
-    const randMiddle = Math.floor((Math.random() * middle.length) - 1);
-    const randEnd = Math.floor((Math.random() * end.length) - 1);
+    const randStart = Math.floor(Math.random() * start.length);
+    const randMiddle = Math.floor(Math.random() * middle.length);
+    const randEnd = Math.floor(Math.random() * end.length);
 
-    return `${start[randStart]} ${middle[randMiddle]}` + "\n" + `${end[randEnd]}`;
+    return `${start[randStart]} ${middle[randMiddle]}` + "<br>" + `${end[randEnd]}`;
 }
 
-console.log(generateMessage());
+// console.log(generateMessage());
